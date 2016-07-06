@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE>結帳付款網頁</TITLE>
+<META NAME="Author" CONTENT="Fred">
+<style>
+	td{font-size:11pt}
+</style>
+</HEAD>
+
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#0000ff" VLINK="#800080"><!--<form name="main" action="http://dxsec02/UWRA/FageOrder_Initial.asp" method="post" >-->
+<form name="main" action="https://www.mybank.com.tw/myatm/Acquiring/AcqOrder_Initial.asp" method="post" >
+<center>
+<table cellpadding=2 cellspacing=0 border=0 align=center> 
+<tr height=50>
+	<td colspan=2 align=middle><font size=+3 face=標楷體>商家模擬網頁</font></td>
+</tr>
+
+<tr bgcolor="#f0f0f0">
+    <td colspan=2 align=middle>模擬商店<INPUT value=010790002000 
+      name=CompanyID>：&nbsp; 
+		
+	</td>
+</tr>
+<tr height=40>
+	<td align=right>訂單日期：</td><td><input name="orderNoGenDate" value="2013/11/28"></td>
+</tr>
+<tr height=40>
+	<td align=right>訂單編號：</td><td><input name="PtrAcno" value="63601231120610"></td>
+</tr>
+<tr height=40>
+	<td align=right>訂購商品：</td><td><input name="ItemNo" size="7" value="萬寶龍紅鋼珠筆" style="WIDTH: 153px; HEIGHT: 22px"></td>
+</tr>
+<tr height=40>
+	<td align=right>商品數量：</td><td><input name="PurQuantity" size="3" value="1" style="WIDTH: 80px; HEIGHT: 22px"></td>
+</tr>
+<tr height=40>
+	<td align=right>付款金額：</td><td><input name="amount" size="4" value="100" style="WIDTH: 82px; HEIGHT: 22px"></td>
+</tr>
+
+<tr height=40>
+	<td colspan=2 align="middle"><input type=submit value=" 金 融 卡 結 帳 付 款 "></td>
+</tr>
+</table>
+</center>
+<input name="MerchantKey" type="hidden" value="998877665544332211">
+</form>
+
+<HR>
+<PRE>
+<FONT color=#005ca0 style="FONT-SIZE: 10pt">
+『網路提款機myATM』線上付款服務,採用商家易於整合之方式,不需安裝軟體
+
+一.網路商家只需於最後結帳頁面加上如下參數
+
+	&lt; form action="https://www.mybank.com.tw/myatm/Acquiring/AcqOrder_Initial.asp" method="post" &gt;
+	&lt; input type=hidden name="CompanyID" value="016790001000"&gt;
+	&lt; input type=hidden name="orderNoGenDate" value="2005/07/01"&gt;
+	&lt; input type=hidden name="PtrAcno" value="86620855667"&gt;
+	&lt; input type=hidden name="ItemNo" value="萬寶龍紅鋼珠筆"&gt;
+	&lt; input type=hidden name="PurQuantity" value="1"&gt;
+	&lt; input type=hidden name="amount" value="100"&gt;
+	
+	說明:
+	  CompanyID：必要欄位，商店代號；由本行編製唯一代號以供商家使用
+	  orderNoGenDate：必要欄位，訂單產生日期
+	  PtrAcno：必要欄位，虛擬帳號(訂單編號)
+	  ItemNo：非必要欄位，訂購商品名稱；建議長度不可超過15位元 
+	  PurQuantity：非必要欄位，商品數量
+	  amount：必要欄位，交易金額；每筆交易不可超過 100,000元
+	  	　
+	　
+二.商家「訂單確認程式」 
+
+	為確認消費事實，商家可使用任何平台及語言撰寫 WEB Base之「訂單確認程式」，
+	每次交易時本行線上付款服務系統會呼叫此「訂單確認程式」，若商家確認該筆
+	交易紀錄正常，則回應 0000 如此交易將繼續進行；若否,此筆交易將會被取消，
+	為達目的請商家提供以下事項：
+		
+	1.商家需告知「訂單確認程式」之URL
+	2.本行系統傳入商店代號(CompanyID)、訂單產生日期(yyyy/mm/dd；orderNoGenDate)、虛擬帳號(PtrAcno)等參數
+	3.商家檢核其資料庫中該筆訂單紀錄是否正常，若正常則 rtnCode之value設為 0000 
+	4.本行提供 FISC2Confirm.asp範例程式 
+	5.「訂單確認程式」可以置於 http(80) 或 https(443)
+
+</FONT>
+</PRE>
+</BODY>
+</HTML>
+
+
+
